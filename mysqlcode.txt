@@ -1,0 +1,225 @@
+USE Rapid_Repo;
+CREATE TABLE `Cities` (
+  `city_id` mediumint(8) unsigned NOT NULL auto_increment,
+  `city_name` varchar(255),
+  PRIMARY KEY (`city_id`)
+) AUTO_INCREMENT=1;
+
+INSERT INTO `Cities` (`city_name`) VALUES ("London");
+INSERT INTO `Cities` (`city_name`) VALUES ("Manchester");
+INSERT INTO `Cities` (`city_name`) VALUES ("Bath");
+INSERT INTO `Cities` (`city_name`) VALUES ("Birmingham");
+INSERT INTO `Cities` (`city_name`) VALUES ("Bristol");
+INSERT INTO `Cities` (`city_name`) VALUES ("Leeds");
+INSERT INTO `Cities` (`city_name`) VALUES ("Oxford");
+INSERT INTO `Cities` (`city_name`) VALUES ("Preston");
+INSERT INTO `Cities` (`city_name`) VALUES ("Cambridge");
+INSERT INTO `Cities` (`city_name`) VALUES ("Nottingham");
+INSERT INTO `Cities` (`city_name`) VALUES ("Liverpool");
+INSERT INTO `Cities` (`city_name`) VALUES ("Coventry");
+INSERT INTO `Cities` (`city_name`) VALUES ("Norwich");
+INSERT INTO `Cities` (`city_name`) VALUES ("Plymouth");
+INSERT INTO `Cities` (`city_name`) VALUES ("York");
+
+####################################################################################
+
+CREATE TABLE `recovery_staff` (
+  `staff_id` smallint(6) unsigned NOT NULL auto_increment,
+  `staff_name` varchar(255) default NULL,
+  `staff_surname` varchar(255) default NULL,
+  `staff_phone` varchar(100) default NULL,
+  `staff_email` varchar(255) default NULL,
+  `staff_city_id` mediumint default NULL,
+  PRIMARY KEY (`staff_id`)
+) AUTO_INCREMENT=1;
+
+INSERT INTO `recovery_staff` (`staff_name`,`staff_surname`,`staff_phone`,`staff_email`,`staff_city_id`) VALUES ("Jessica","Walter","1-670-947-9340","a.auctor@sedtortorInteger.org",1);
+INSERT INTO `recovery_staff` (`staff_name`,`staff_surname`,`staff_phone`,`staff_email`,`staff_city_id`) VALUES ("Knox","Perez","1-428-718-6416","egestas.Aliquam@urna.edu",2);
+INSERT INTO `recovery_staff` (`staff_name`,`staff_surname`,`staff_phone`,`staff_email`,`staff_city_id`) VALUES ("Abdul","Galloway","1-209-190-9509","in.faucibus.orci@nislMaecenasmalesuada.ca",3);
+INSERT INTO `recovery_staff` (`staff_name`,`staff_surname`,`staff_phone`,`staff_email`,`staff_city_id`) VALUES ("Darius","Chapman","1-276-996-8991","In.mi@liberoat.net",4);
+INSERT INTO `recovery_staff` (`staff_name`,`staff_surname`,`staff_phone`,`staff_email`,`staff_city_id`) VALUES ("Linda","Mcfarland","1-494-275-4546","senectus@semper.edu",5);
+INSERT INTO `recovery_staff` (`staff_name`,`staff_surname`,`staff_phone`,`staff_email`,`staff_city_id`) VALUES ("Keaton","Irwin","1-798-773-0082","ac.sem@Nam.edu",6);
+INSERT INTO `recovery_staff` (`staff_name`,`staff_surname`,`staff_phone`,`staff_email`,`staff_city_id`) VALUES ("Hammett","Wood","1-523-691-8863","Maecenas@loremsemperauctor.net",7);
+INSERT INTO `recovery_staff` (`staff_name`,`staff_surname`,`staff_phone`,`staff_email`,`staff_city_id`) VALUES ("Jacob","Spence","1-188-784-1450","eros.Nam@nec.edu",8);
+INSERT INTO `recovery_staff` (`staff_name`,`staff_surname`,`staff_phone`,`staff_email`,`staff_city_id`) VALUES ("Marny","Griffith","1-209-996-3312","consequat@ante.net",9);
+INSERT INTO `recovery_staff` (`staff_name`,`staff_surname`,`staff_phone`,`staff_email`,`staff_city_id`) VALUES ("Megan","Rosa","1-499-357-8202","commodo.hendrerit.Donec@dapibus.edu",10);
+INSERT INTO `recovery_staff` (`staff_name`,`staff_surname`,`staff_phone`,`staff_email`,`staff_city_id`) VALUES ("Sydney","Valentine","1-262-445-3972","ligula.elit@aliquet.com",11);
+INSERT INTO `recovery_staff` (`staff_name`,`staff_surname`,`staff_phone`,`staff_email`,`staff_city_id`) VALUES ("Declan","Brown","1-918-393-4492","eget@Sedauctor.co.uk",12);
+INSERT INTO `recovery_staff` (`staff_name`,`staff_surname`,`staff_phone`,`staff_email`,`staff_city_id`) VALUES ("Ciaran","Parker","1-204-985-9166","ligula@lacuspedesagittis.org",13);
+INSERT INTO `recovery_staff` (`staff_name`,`staff_surname`,`staff_phone`,`staff_email`,`staff_city_id`) VALUES ("TaShya","Stein","1-835-191-5599","auctor@Phasellusdapibus.org",14);
+INSERT INTO `recovery_staff` (`staff_name`,`staff_surname`,`staff_phone`,`staff_email`,`staff_city_id`) VALUES ("Wesley","Clarke","1-581-290-6882","vel.convallis@Nulla.net",15);
+
+####################################################################################
+
+CREATE TABLE `asset_owner` (
+  `asset_owner_id` smallint(6) unsigned NOT NULL auto_increment,
+  `ownership` TEXT default NULL,
+  PRIMARY KEY (`asset_owner_id`)
+) AUTO_INCREMENT=1;
+
+INSERT INTO `asset_owner` (`ownership`) VALUES ("Debtor is the owner");
+INSERT INTO `asset_owner` (`ownership`) VALUES ("Debtor is not the owner");
+
+####################################################################################
+
+CREATE TABLE `asset_type` (
+  `asset_id` smallint(8) unsigned NOT NULL auto_increment,
+  `asset_name` TEXT default NULL,
+  PRIMARY KEY (`asset_id`)
+) AUTO_INCREMENT=1;
+
+INSERT INTO `asset_type` (`asset_name`) VALUES ("Car");
+INSERT INTO `asset_type` (`asset_name`) VALUES ("Van");
+INSERT INTO `asset_type` (`asset_name`) VALUES ("Lorrie");
+INSERT INTO `asset_type` (`asset_name`) VALUES ("Motorhome");
+INSERT INTO `asset_type` (`asset_name`) VALUES ("Moped");
+INSERT INTO `asset_type` (`asset_name`) VALUES ("Motorbike");
+INSERT INTO `asset_type` (`asset_name`) VALUES ("Quad Bike");
+INSERT INTO `asset_type` (`asset_name`) VALUES ("Speed Boat");
+INSERT INTO `asset_type` (`asset_name`) VALUES ("Boat");
+INSERT INTO `asset_type` (`asset_name`) VALUES ("Jet Ski");
+INSERT INTO `asset_type` (`asset_name`) VALUES ("Helicopter");
+INSERT INTO `asset_type` (`asset_name`) VALUES ("Light Aircraft");
+INSERT INTO `asset_type` (`asset_name`) VALUES ("Buggy");
+INSERT INTO `asset_type` (`asset_name`) VALUES ("Other");
+
+####################################################################################
+
+CREATE TABLE `debtor_details` (
+  `debtor_id` mediumint(8) unsigned NOT NULL auto_increment,
+  `debtor_name` varchar(255) default NULL,
+  `debtor_surname` varchar(255) default NULL,
+  `debtor_phone` varchar(13) default NULL,
+  `debtor_email` varchar(255) default NULL,
+  `debtor_address` varchar(255) default NULL,
+  `city_id` mediumint default NULL,
+  PRIMARY KEY (`debtor_id`)
+) AUTO_INCREMENT=1;
+
+INSERT INTO `debtor_details` (`debtor_name`,`debtor_surname`,`debtor_phone`,`debtor_email`,`debtor_address`,`city_id`) VALUES ("Nora","Clements","16150710 3008","lacus@sagittisfelisDonec.com","323-2752 Egestas St.",11);
+INSERT INTO `debtor_details` (`debtor_name`,`debtor_surname`,`debtor_phone`,`debtor_email`,`debtor_address`,`city_id`) VALUES ("Kyle","Whitley","16810908 5889","tristique.ac.eleifend@neccursus.net","Ap #281-3118 Tempus St.",3);
+INSERT INTO `debtor_details` (`debtor_name`,`debtor_surname`,`debtor_phone`,`debtor_email`,`debtor_address`,`city_id`) VALUES ("Gannon","Glover","16650105 1681","dapibus@sociosqu.org","Ap #740-9574 Nulla Avenue",4);
+INSERT INTO `debtor_details` (`debtor_name`,`debtor_surname`,`debtor_phone`,`debtor_email`,`debtor_address`,`city_id`) VALUES ("Amela","Goodwin","16220228 3012","tortor.at.risus@orciconsectetuereuismod.edu","P.O. Box 908, 2629 Scelerisque St.",8);
+INSERT INTO `debtor_details` (`debtor_name`,`debtor_surname`,`debtor_phone`,`debtor_email`,`debtor_address`,`city_id`) VALUES ("Ronan","Cain","16951102 2239","eleifend@ullamcorper.org","Ap #328-2689 Non, Av.",8);
+INSERT INTO `debtor_details` (`debtor_name`,`debtor_surname`,`debtor_phone`,`debtor_email`,`debtor_address`,`city_id`) VALUES ("Ashely","Shields","16540518 9019","Donec@nisidictumaugue.com","Ap #807-779 Risus. Ave",7);
+INSERT INTO `debtor_details` (`debtor_name`,`debtor_surname`,`debtor_phone`,`debtor_email`,`debtor_address`,`city_id`) VALUES ("Bianca","Cox","16310228 3318","amet.diam.eu@placeratvelit.co.uk","180-9187 In Av.",11);
+INSERT INTO `debtor_details` (`debtor_name`,`debtor_surname`,`debtor_phone`,`debtor_email`,`debtor_address`,`city_id`) VALUES ("Chester","Boyle","16360318 2373","fermentum.vel@cursus.org","Ap #134-6376 Mi, Road",13);
+INSERT INTO `debtor_details` (`debtor_name`,`debtor_surname`,`debtor_phone`,`debtor_email`,`debtor_address`,`city_id`) VALUES ("Madonna","Burks","16680722 0162","a@Nullasempertellus.org","2028 Tincidunt Av.",4);
+INSERT INTO `debtor_details` (`debtor_name`,`debtor_surname`,`debtor_phone`,`debtor_email`,`debtor_address`,`city_id`) VALUES ("Joseph","Winters","16390723 0472","ultrices.iaculis.odio@Curabiturconsequatlectus.ca","Ap #792-9252 Ac, Street",9);
+INSERT INTO `debtor_details` (`debtor_name`,`debtor_surname`,`debtor_phone`,`debtor_email`,`debtor_address`,`city_id`) VALUES ("Keaton","Anthony","16611016 1962","porttitor.interdum@ut.co.uk","200-9183 Pharetra Rd.",11);
+INSERT INTO `debtor_details` (`debtor_name`,`debtor_surname`,`debtor_phone`,`debtor_email`,`debtor_address`,`city_id`) VALUES ("Signe","David","16890424 7593","posuere.cubilia.Curae@feugiat.edu","Ap #518-4604 Cras Av.",14);
+INSERT INTO `debtor_details` (`debtor_name`,`debtor_surname`,`debtor_phone`,`debtor_email`,`debtor_address`,`city_id`) VALUES ("Kane","Hays","16170624 2896","tellus@etmagnisdis.edu","P.O. Box 702, 8683 Nunc Road",13);
+INSERT INTO `debtor_details` (`debtor_name`,`debtor_surname`,`debtor_phone`,`debtor_email`,`debtor_address`,`city_id`) VALUES ("Guy","Glenn","16360415 8638","molestie.tortor@dolorFusce.com","333 Blandit Av.",13);
+INSERT INTO `debtor_details` (`debtor_name`,`debtor_surname`,`debtor_phone`,`debtor_email`,`debtor_address`,`city_id`) VALUES ("Xanthus","Keith","16400413 2017","Pellentesque.tincidunt@velitSed.ca","416-7498 Tortor St.",11);
+INSERT INTO `debtor_details` (`debtor_name`,`debtor_surname`,`debtor_phone`,`debtor_email`,`debtor_address`,`city_id`) VALUES ("Naomi","Ware","16850511 6379","amet.dapibus.id@ipsumdolor.ca","P.O. Box 312, 884 Est. St.",12);
+INSERT INTO `debtor_details` (`debtor_name`,`debtor_surname`,`debtor_phone`,`debtor_email`,`debtor_address`,`city_id`) VALUES ("Keiko","Wheeler","16230609 0933","quam@velitSed.co.uk","2598 Ultricies Avenue",3);
+INSERT INTO `debtor_details` (`debtor_name`,`debtor_surname`,`debtor_phone`,`debtor_email`,`debtor_address`,`city_id`) VALUES ("Tyler","Soto","16711108 8071","Nam.ac@etrisus.edu","161-9545 Non Rd.",14);
+INSERT INTO `debtor_details` (`debtor_name`,`debtor_surname`,`debtor_phone`,`debtor_email`,`debtor_address`,`city_id`) VALUES ("Deborah","Jensen","16370627 3665","eu@vulputateullamcorpermagna.co.uk","835-9915 Sed St.",2);
+INSERT INTO `debtor_details` (`debtor_name`,`debtor_surname`,`debtor_phone`,`debtor_email`,`debtor_address`,`city_id`) VALUES ("Kirk","Hardin","16750128 5600","rutrum@turpis.net","693-4319 Luctus, Road",5);
+INSERT INTO `debtor_details` (`debtor_name`,`debtor_surname`,`debtor_phone`,`debtor_email`,`debtor_address`,`city_id`) VALUES ("Marsden","Hodge","16620518 3418","ante@ac.com","644-1892 Auctor, St.",1);
+INSERT INTO `debtor_details` (`debtor_name`,`debtor_surname`,`debtor_phone`,`debtor_email`,`debtor_address`,`city_id`) VALUES ("Colorado","Austin","16360716 0334","Ut.semper.pretium@Duisdignissimtempor.com","P.O. Box 617, 2210 Nam St.",6);
+INSERT INTO `debtor_details` (`debtor_name`,`debtor_surname`,`debtor_phone`,`debtor_email`,`debtor_address`,`city_id`) VALUES ("Paula","Morrow","16961012 1940","sagittis.Nullam@nectempus.com","711-5659 Nunc St.",4);
+INSERT INTO `debtor_details` (`debtor_name`,`debtor_surname`,`debtor_phone`,`debtor_email`,`debtor_address`,`city_id`) VALUES ("Kaye","Briggs","16150425 1123","commodo.at.libero@inlobortistellus.net","Ap #520-932 Pharetra, Street",7);
+INSERT INTO `debtor_details` (`debtor_name`,`debtor_surname`,`debtor_phone`,`debtor_email`,`debtor_address`,`city_id`) VALUES ("Carlos","Osborn","16960319 5901","facilisis.non.bibendum@adipiscingfringilla.edu","7127 Libero. Ave",12);
+INSERT INTO `debtor_details` (`debtor_name`,`debtor_surname`,`debtor_phone`,`debtor_email`,`debtor_address`,`city_id`) VALUES ("Sawyer","Cunningham","16861130 6633","metus.Aenean.sed@lacus.ca","Ap #991-3523 Suspendisse Road",15);
+INSERT INTO `debtor_details` (`debtor_name`,`debtor_surname`,`debtor_phone`,`debtor_email`,`debtor_address`,`city_id`) VALUES ("Rahim","Sutton","16250921 5071","risus@idrisus.edu","Ap #353-1616 Convallis St.",15);
+INSERT INTO `debtor_details` (`debtor_name`,`debtor_surname`,`debtor_phone`,`debtor_email`,`debtor_address`,`city_id`) VALUES ("Kamal","Roach","16700619 8464","et.malesuada@mauriserateget.co.uk","4606 Luctus St.",1);
+INSERT INTO `debtor_details` (`debtor_name`,`debtor_surname`,`debtor_phone`,`debtor_email`,`debtor_address`,`city_id`) VALUES ("Ivory","Maynard","16890908 4736","nibh.Quisque@aliquetlobortis.co.uk","5534 Molestie Av.",10);
+INSERT INTO `debtor_details` (`debtor_name`,`debtor_surname`,`debtor_phone`,`debtor_email`,`debtor_address`,`city_id`) VALUES ("Hayes","Padilla","16170725 6788","convallis.ante.lectus@Aliquamadipiscinglobortis.net","730-2640 Donec Ave",14);
+INSERT INTO `debtor_details` (`debtor_name`,`debtor_surname`,`debtor_phone`,`debtor_email`,`debtor_address`,`city_id`) VALUES ("Demetria","Hensley","16830423 2393","Suspendisse.aliquet.sem@loremsemperauctor.org","395-5230 Tristique St.",4);
+INSERT INTO `debtor_details` (`debtor_name`,`debtor_surname`,`debtor_phone`,`debtor_email`,`debtor_address`,`city_id`) VALUES ("Stacey","Walker","16911227 8008","eu@ametloremsemper.co.uk","P.O. Box 807, 7564 Accumsan St.",14);
+INSERT INTO `debtor_details` (`debtor_name`,`debtor_surname`,`debtor_phone`,`debtor_email`,`debtor_address`,`city_id`) VALUES ("Benjamin","Beard","16051222 4262","cursus.non@adipiscing.org","6195 Sed Rd.",9);
+
+####################################################################################
+
+CREATE TABLE `repo_status` (
+  `status_id` mediumint(8) unsigned NOT NULL auto_increment,
+  `status` TEXT default NULL,
+  PRIMARY KEY (`status_id`)
+) AUTO_INCREMENT=1;
+
+INSERT INTO `repo_status` (`status`) VALUES ("Unsuccessful");
+INSERT INTO `repo_status` (`status`) VALUES ("On Hold");
+INSERT INTO `repo_status` (`status`) VALUES ("Pending");
+INSERT INTO `repo_status` (`status`) VALUES ("In progress");
+INSERT INTO `repo_status` (`status`) VALUES ("Terminated");
+INSERT INTO `repo_status` (`status`) VALUES ("Successful");
+
+####################################################################################
+
+CREATE TABLE `lenders_details` (
+  `lenders_id` mediumint(8) unsigned NOT NULL auto_increment,
+  `lender_name` varchar(255),
+  `lender_phone` varchar(13) default NULL,
+  `lender_email` varchar(255) default NULL,
+  `lender_address` varchar(255) default NULL,
+  `lender_website` TEXT default NULL,
+  `city_id` mediumint default NULL,
+  PRIMARY KEY (`lenders_id`)
+) AUTO_INCREMENT=1;
+
+INSERT INTO `lenders_details` (`lender_name`,`lender_phone`,`lender_email`,`lender_address`,`lender_website`,`city_id`) VALUES ("Dictum Associates","16670-3113123","dictum@associates.com","P.O. Box 531, 6782 Est St.","www.associates.com","1");
+INSERT INTO `lenders_details` (`lender_name`,`lender_phone`,`lender_email`,`lender_address`,`lender_website`,`city_id`) VALUES ("Facilisis Corporation","16810705-1420","suspendisse@corp.com","205-5092 Sem, Avenue","www.corp.com","2");
+INSERT INTO `lenders_details` (`lender_name`,`lender_phone`,`lender_email`,`lender_address`,`lender_website`,`city_id`) VALUES ("Inceptos LTD","16830824-9534","inceptops@corp.com","Ap #344-8041 Sagittis Rd.","www.inccorp.com","3");
+INSERT INTO `lenders_details` (`lender_name`,`lender_phone`,`lender_email`,`lender_address`,`lender_website`,`city_id`) VALUES ("Magnis Inc.","16730323-2461","magnis@semperegestas.co.uk","2133 Nunc St.","www.magnisinc.com","2");
+INSERT INTO `lenders_details` (`lender_name`,`lender_phone`,`lender_email`,`lender_address`,`lender_website`,`city_id`) VALUES ("Dolor Fusce PC","16610727-3457","tellus@ac.net","P.O. Box 209, 1032 Donec Ave","www.dolorfusce.com","4");
+
+####################################################################################
+
+CREATE TABLE `invoice_status` (
+  `invoice_id` mediumint(8) unsigned NOT NULL auto_increment,
+  `status` TEXT default NULL,
+  PRIMARY KEY (`invoice_id`)
+) AUTO_INCREMENT=1;
+
+INSERT INTO `invoice_status` (`status`) VALUES ("Paid");
+INSERT INTO `invoice_status` (`status`) VALUES ("Pending Payment");
+
+####################################################################################
+
+CREATE TABLE `debt_details` (
+  `debt_id` mediumint(8) unsigned NOT NULL auto_increment,
+  `debtor_id` mediumint default NULL,
+  `lenders_id` mediumint default NULL,
+  `contract_file` varchar(255),
+  `asset_file` varchar(255),
+  `amount` varchar(100) default NULL,
+  `due_date` varchar(255),
+  `status_id` mediumint default NULL,
+  `invoice_id` mediumint default NULL,
+  PRIMARY KEY (`debt_id`)
+) AUTO_INCREMENT=1;
+
+INSERT INTO `debt_details` (`debtor_id`,`lenders_id`,`contract_file`,`asset_file`,`amount`,`due_date`,`status_id`,`invoice_id`) VALUES (19,3,"file_contract.pdf","asset_file.pdf","£4540.93","10/06/2020",1,1);
+INSERT INTO `debt_details` (`debtor_id`,`lenders_id`,`contract_file`,`asset_file`,`amount`,`due_date`,`status_id`,`invoice_id`) VALUES (18,1,"file_contract.pdf","asset_file.pdf","£42466.67","26/08/2019",3,2);
+INSERT INTO `debt_details` (`debtor_id`,`lenders_id`,`contract_file`,`asset_file`,`amount`,`due_date`,`status_id`,`invoice_id`) VALUES (21,3,"file_contract.pdf","asset_file.pdf","£63040.50","27/09/2019",1,1);
+INSERT INTO `debt_details` (`debtor_id`,`lenders_id`,`contract_file`,`asset_file`,`amount`,`due_date`,`status_id`,`invoice_id`) VALUES (8,2,"file_contract.pdf","asset_file.pdf","£35888.72","18/03/2019",1,2);
+INSERT INTO `debt_details` (`debtor_id`,`lenders_id`,`contract_file`,`asset_file`,`amount`,`due_date`,`status_id`,`invoice_id`) VALUES (19,4,"file_contract.pdf","asset_file.pdf","£66880.33","03/06/2020",1,2);
+INSERT INTO `debt_details` (`debtor_id`,`lenders_id`,`contract_file`,`asset_file`,`amount`,`due_date`,`status_id`,`invoice_id`) VALUES (8,4,"file_contract.pdf","asset_file.pdf","£92883.66","16/02/2020",5,2);
+INSERT INTO `debt_details` (`debtor_id`,`lenders_id`,`contract_file`,`asset_file`,`amount`,`due_date`,`status_id`,`invoice_id`) VALUES (8,1,"file_contract.pdf","asset_file.pdf","£14929.69","14/10/2020",1,2);
+INSERT INTO `debt_details` (`debtor_id`,`lenders_id`,`contract_file`,`asset_file`,`amount`,`due_date`,`status_id`,`invoice_id`) VALUES (23,1,"file_contract.pdf","asset_file.pdf","£9359.23","17/01/2021",4,2);
+INSERT INTO `debt_details` (`debtor_id`,`lenders_id`,`contract_file`,`asset_file`,`amount`,`due_date`,`status_id`,`invoice_id`) VALUES (4,2,"file_contract.pdf","asset_file.pdf","£30699.27","19/06/2020",4,2);
+INSERT INTO `debt_details` (`debtor_id`,`lenders_id`,`contract_file`,`asset_file`,`amount`,`due_date`,`status_id`,`invoice_id`) VALUES (24,4,"file_contract.pdf","asset_file.pdf","£9279.96","25/08/2019",2,1);
+INSERT INTO `debt_details` (`debtor_id`,`lenders_id`,`contract_file`,`asset_file`,`amount`,`due_date`,`status_id`,`invoice_id`) VALUES (15,2,"file_contract.pdf","asset_file.pdf","£53899.00","10/03/2021",3,1);
+INSERT INTO `debt_details` (`debtor_id`,`lenders_id`,`contract_file`,`asset_file`,`amount`,`due_date`,`status_id`,`invoice_id`) VALUES (24,3,"file_contract.pdf","asset_file.pdf","£4989.26","30/06/2020",5,1);
+INSERT INTO `debt_details` (`debtor_id`,`lenders_id`,`contract_file`,`asset_file`,`amount`,`due_date`,`status_id`,`invoice_id`) VALUES (1,1,"file_contract.pdf","asset_file.pdf","£20399.54","05/02/2020",2,2);
+INSERT INTO `debt_details` (`debtor_id`,`lenders_id`,`contract_file`,`asset_file`,`amount`,`due_date`,`status_id`,`invoice_id`) VALUES (22,2,"file_contract.pdf","asset_file.pdf","£35990.33","27/08/2019",3,1);
+INSERT INTO `debt_details` (`debtor_id`,`lenders_id`,`contract_file`,`asset_file`,`amount`,`due_date`,`status_id`,`invoice_id`) VALUES (4,2,"file_contract.pdf","asset_file.pdf","£9979.81","24/01/2020",4,2);
+INSERT INTO `debt_details` (`debtor_id`,`lenders_id`,`contract_file`,`asset_file`,`amount`,`due_date`,`status_id`,`invoice_id`) VALUES (16,4,"file_contract.pdf","asset_file.pdf","£8379.39","16/06/2020",1,2);
+INSERT INTO `debt_details` (`debtor_id`,`lenders_id`,`contract_file`,`asset_file`,`amount`,`due_date`,`status_id`,`invoice_id`) VALUES (14,2,"file_contract.pdf","asset_file.pdf","£8919.42","26/08/2020",1,2);
+INSERT INTO `debt_details` (`debtor_id`,`lenders_id`,`contract_file`,`asset_file`,`amount`,`due_date`,`status_id`,`invoice_id`) VALUES (24,2,"file_contract.pdf","asset_file.pdf","£9509.00","10/11/2019",4,2);
+INSERT INTO `debt_details` (`debtor_id`,`lenders_id`,`contract_file`,`asset_file`,`amount`,`due_date`,`status_id`,`invoice_id`) VALUES (28,4,"file_contract.pdf","asset_file.pdf","£20996.76","28/08/2020",5,1);
+INSERT INTO `debt_details` (`debtor_id`,`lenders_id`,`contract_file`,`asset_file`,`amount`,`due_date`,`status_id`,`invoice_id`) VALUES (11,3,"file_contract.pdf","asset_file.pdf","£20998.13","21/12/2020",5,1);
+INSERT INTO `debt_details` (`debtor_id`,`lenders_id`,`contract_file`,`asset_file`,`amount`,`due_date`,`status_id`,`invoice_id`) VALUES (29,2,"file_contract.pdf","asset_file.pdf","£48199.88","07/09/2019",2,2);
+INSERT INTO `debt_details` (`debtor_id`,`lenders_id`,`contract_file`,`asset_file`,`amount`,`due_date`,`status_id`,`invoice_id`) VALUES (29,4,"file_contract.pdf","asset_file.pdf","£4399.46","30/05/2020",1,2);
+INSERT INTO `debt_details` (`debtor_id`,`lenders_id`,`contract_file`,`asset_file`,`amount`,`due_date`,`status_id`,`invoice_id`) VALUES (4,4,"file_contract.pdf","asset_file.pdf","£20096.66","04/04/2020",2,2);
+INSERT INTO `debt_details` (`debtor_id`,`lenders_id`,`contract_file`,`asset_file`,`amount`,`due_date`,`status_id`,`invoice_id`) VALUES (4,1,"file_contract.pdf","asset_file.pdf","£37188.92","04/07/2019",4,1);
+INSERT INTO `debt_details` (`debtor_id`,`lenders_id`,`contract_file`,`asset_file`,`amount`,`due_date`,`status_id`,`invoice_id`) VALUES (12,2,"file_contract.pdf","asset_file.pdf","£5868.95","28/03/2020",4,1);
+INSERT INTO `debt_details` (`debtor_id`,`lenders_id`,`contract_file`,`asset_file`,`amount`,`due_date`,`status_id`,`invoice_id`) VALUES (32,3,"file_contract.pdf","asset_file.pdf","£42088.68","25/12/2019",5,2);
+INSERT INTO `debt_details` (`debtor_id`,`lenders_id`,`contract_file`,`asset_file`,`amount`,`due_date`,`status_id`,`invoice_id`) VALUES (9,2,"file_contract.pdf","asset_file.pdf","£4381.08","11/05/2020",2,2);
+INSERT INTO `debt_details` (`debtor_id`,`lenders_id`,`contract_file`,`asset_file`,`amount`,`due_date`,`status_id`,`invoice_id`) VALUES (9,4,"file_contract.pdf","asset_file.pdf","£4288.89","29/11/2020",3,2);
+INSERT INTO `debt_details` (`debtor_id`,`lenders_id`,`contract_file`,`asset_file`,`amount`,`due_date`,`status_id`,`invoice_id`) VALUES (14,3,"file_contract.pdf","asset_file.pdf","£8835.97","18/04/2020",4,2);
+INSERT INTO `debt_details` (`debtor_id`,`lenders_id`,`contract_file`,`asset_file`,`amount`,`due_date`,`status_id`,`invoice_id`) VALUES (27,3,"file_contract.pdf","asset_file.pdf","£27885.62","01/02/2020",4,2);
+INSERT INTO `debt_details` (`debtor_id`,`lenders_id`,`contract_file`,`asset_file`,`amount`,`due_date`,`status_id`,`invoice_id`) VALUES (7,1,"file_contract.pdf","asset_file.pdf","£7829.08","30/06/2020",5,2);
+INSERT INTO `debt_details` (`debtor_id`,`lenders_id`,`contract_file`,`asset_file`,`amount`,`due_date`,`status_id`,`invoice_id`) VALUES (21,2,"file_contract.pdf","asset_file.pdf","£9873.25","08/12/2019",1,2);
+INSERT INTO `debt_details` (`debtor_id`,`lenders_id`,`contract_file`,`asset_file`,`amount`,`due_date`,`status_id`,`invoice_id`) VALUES (31,3,"file_contract.pdf","asset_file.pdf","£48889.71","26/07/2019",4,1);
